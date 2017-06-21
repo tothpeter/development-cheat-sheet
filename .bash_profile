@@ -1,51 +1,48 @@
-eval "$(rbenv init -)"
-eval "$(thefuck --alias)"
-
-
-export PATH=$PATH:/usr/local/heroku/bin:node_modules/.bin:/Applications/Postgres.app/Contents:/usr/local/bin/npm
-# /Users/peter/.rbenv/bin
-# /Applications/Postgres.app/Contents/Versions/9.3/bin
-# /usr/local/heroku/bin:/Users/peter/.rbenv/shims:/Users/peter/.rbenv/bin:node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/9.3/bin
-# export PATH=/home/peter/npm/bin:$PATH
-# eval "$(ssh-add)"
-
-export PS1="\W $ "
-
-alias f='fuck'
+# Redis client
+alias redisc='redis-commander'
 
 # Ruby
 alias be='bundle exec'
-alias bi='bundle install'
-alias bu='bundle update'
 
 alias rs='rspec --colour'
 
+# Postgres
+alias pg_ctl='pg_ctl -D /usr/local/var/postgres'
+alias pgs='pg_ctl -D /usr/local/var/postgres stop'
+alias pgrs='pg_ctl -D /usr/local/var/postgres restart'
+
 # Rails
 alias r='rails'
+alias r4='rails _4.2.8_'
 alias rc='bundle exec rails console'
 alias routes='bundle exec rake routes'
 
-alias h2h='for file in app/views/devise/**/*.erb; do html2haml -e $file ${file%erb}haml && rm $file; done'
-alias ddy='wget -O config/database.yml "https://gist.githubusercontent.com/tothpeter/4932ccacb22d974159a4/raw/8857a9da5f51ad27e1d32a23336cbd89a8d82ec5/gistfile1.txt"'
-alias logr='tail -f log/development.log'
+alias pumap='puma -p 5000'
 
+# Convert files erb files to haml
+# alias h2h='for file in app/views/devise/**/*.erb; do html2haml -e $file ${file%erb}haml && rm $file; done'
+# alias ddy='wget -O config/database.yml "https://gist.githubusercontent.com/tothpeter/4932ccacb22d974159a4/raw/8857a9da5f51ad27e1d32a23336cbd89a8d82ec5/gistfile1.txt"'
+# Rails logs
+alias logd='tail -f log/development.log'
+alias logt='tail -f log/test.log'
+
+# Rails migration
 alias mig='bundle exec rake db:migrate'
-alias migt='bundle exec rake db:migrate RAILS_ENV=test'
-alias reset='bundle exec rake db:migrate:reset'
+alias migt='RAILS_ENV=test bundle exec rake db:migrate'
+alias migr='bundle exec rake db:migrate:reset'
 alias rollb='bundle exec rake db:rollback'
-alias rollbt='bundle exec rake db:rollback RAILS_ENV=test'
+alias rollbt='RAILS_ENV=test bundle exec rake db:rollback'
+alias seed='bundle exec rake db:seed'
 
-alias rest='touch tmp/restart.txt'
-
+# Rails generators
 alias rgc='rails generate controller'
 alias rgm='rails generate migration'
 alias rgmod='rails generate model'
 alias rgs='rails generate scaffold'
 
-alias seed='bundle exec rake db:seed'
-alias tests='bundle exec guard'
-alias cu='bundle exec cucumber'
+alias gd='bundle exec guard'
 
+# Deploy
 alias deploy='bundle exec cap production deploy'
 alias deploye='ember deploy --environment production'
 
@@ -72,30 +69,12 @@ alias bi='bower i'
 # UNIX
 alias ..='cd ..'
 alias ...='cd ...'
-alias lsl='ls -l'
-alias ll='ls -la'
 
-alias br=". ~/.bash_profile"
-alias fa="ssh-add"
+alias -g gp='| grep -i'
 
-alias cda='cd ~/projects/ruby/theartier'
-alias cdd='cd ~/projects/ruby/dilorom'
-alias cdek='cd ~/projects/php/englishknights'
-alias cdmi='cd ~/projects/ruby/metroirodaszer'
 alias cdp='cd ~/projects'
 alias cdjs='cd ~/projects/js'
 alias cdr='cd ~/projects/ruby'
-alias cdsms='cd ~/projects/ruby/stock-my-store'
-alias cdt='cd ~/projects/ruby/test'
-alias cdt1='cd ~/projects/ruby/the1'
-
-alias cdapi='cd ~/projects/own/type_and_learn/type_and_learn_api'
-alias cdw='cd ~/projects/own/type_and_learn/type_and_learn_web'
-alias cdc='cd ~/projects/own/type_and_learn/type_and_learn_client'
-
-alias cdtu='cd ~/tutorials'
-alias cdtj='cd ~/tutorials/js'
-alias cdtr='cd ~/tutorials/ruby'
 
 alias filetree='ls -R | grep : | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/ /'\'' -e '\''s/-/|/'\'''
 
@@ -109,21 +88,57 @@ alias https='python -m SimpleHTTPServer 8000'
 # Git
 alias g='git'
 alias grb='git rebase'
+alias gd='git diff'
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit -m'
 alias gca='git commit -am'
-alias gch='git checkout'
-alias gchm='git checkout master'
 alias gl='git log --oneline --graph --all --decorate'
 alias gr='git remote -v'
 alias gs='git status'
 alias gpl='git pull'
+alias gplr='git pull --rebase'
 alias gp='git push'
+alias gfp='git fetch production'
+alias gf='git fetch'
+alias gplm='git fetch origin master:master'
+alias nah='git reset --hard && git clean -df'
+alias gu="git reset --soft 'HEAD^'"
 
 # Apps
 alias a='atom .'
 alias s='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl .'
 alias o='open .'
-alias gitx='open -a '\''SourceTree 2'\'' .'
+alias ng='ngrok http 5000'
+alias gitx='open -a SourceTree .'
+alias stree='open -a SourceTree .'
 alias mongos='mongod --config /usr/local/etc/mongod.conf'
+
+alias -s rb=atom
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ipc="ip | pbcopy"
+alias ipl="ipconfig getifaddr en1"
+alias lip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
+alias br="exec $SHELL -l"
+# alias br=". ~/.bash_profile"
+
+#remove folder
+alias rmf="rm -rf"
+
+alias ea='atom ~/.bash_profile'
+alias ec='atom ~/.bash_profile'
+
+# [[ -f ~/.aliases.local ]] && source ~/.aliases.local
