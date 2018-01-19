@@ -109,7 +109,7 @@ alias gu="git reset --soft 'HEAD^'"
 alias a='atom .'
 alias s='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl .'
 alias o='open .'
-alias ng='ngrok http 5000'
+alias ng='~/ngrok http 5000'
 alias gitx='open -a SourceTree .'
 alias stree='open -a SourceTree .'
 alias mongos='mongod --config /usr/local/etc/mongod.conf'
@@ -133,12 +133,12 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 alias br="exec $SHELL -l"
-# alias br=". ~/.bash_profile"
 
 #remove folder
 alias rmf="rm -rf"
+alias rmd="rm -rf"
 
-alias ea='atom ~/.bash_profile'
 alias ec='atom ~/.bash_profile'
+# alias ec='atom ~/.oh-my-zsh/custom/aliases.zsh'
 
 # [[ -f ~/.aliases.local ]] && source ~/.aliases.local
