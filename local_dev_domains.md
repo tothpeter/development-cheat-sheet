@@ -1,6 +1,6 @@
 #
 
-##Unix
+## Unix
 sudo atom /etc/apache2/sites-available/
 
 sudo a2ensite domain1.com
@@ -44,4 +44,5 @@ sudo atom /private/etc/apache2/extra/httpd-vhosts.conf
 
 ### Restart apache
 sudo apachectl restart
+
 sudo apachectl configtest
