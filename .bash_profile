@@ -23,6 +23,7 @@ alias pumap='puma -p 5000'
 # alias h2h='for file in app/views/devise/**/*.erb; do html2haml -e $file ${file%erb}haml && rm $file; done'
 # alias ddy='wget -O config/database.yml "https://gist.githubusercontent.com/tothpeter/4932ccacb22d974159a4/raw/8857a9da5f51ad27e1d32a23336cbd89a8d82ec5/gistfile1.txt"'
 # Rails logs
+alias logr='tail -f'
 alias logd='tail -f log/development.log'
 alias logt='tail -f log/test.log'
 
