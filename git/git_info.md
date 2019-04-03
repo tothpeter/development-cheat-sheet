@@ -24,3 +24,8 @@ Host github.com-own
 ```
 
 Then update the url of the remote in repo: add `-own` postfix to `github.com` and don't forget to update user and email to local git settings
+
+## Rename branch locally and in remote as well
+git branch -m new-name
+git push origin :old-name new-name
+git push origin -u new-name
