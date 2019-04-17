@@ -9,7 +9,7 @@ git_stash_response=`git stash`
 
 GIT_SEQUENCE_EDITOR="sed -i -re 's/pick \($commit_id_to_edit_short\)/edit \1/'" git rebase -i $previous_commit_id
 
-if [[ $git_stash_response != 'No local changes to save' ]] ; then git_stash_apply_response=`git stash apply` ; fi
+if [[ $git_stash_response != 'No local changes to save' ]] ; then git_stash_apply_response=`git stash pop` ; fi
 
 if [[ $git_stash_apply_response == *'CONFLICT'* ]]
 then
