@@ -21,6 +21,11 @@ Host github.com-own
 	HostName github.com
 	User git
 	IdentityFile ~/.ssh/id_rsa_own
+
+Host bitbucket.org-own
+		HostName bitbucket.org
+		User git
+		IdentityFile ~/.ssh/id_rsa_own
 ```
 
 Then update the url of the remote in repo: add `-own` postfix to `github.com` and don't forget to update user and email to local git settings
