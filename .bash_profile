@@ -4,7 +4,8 @@ alias redisc='redis-commander'
 # Ruby
 alias be='bundle exec'
 
-alias rs='rspec --colour'
+alias rs='bundle exec rspec --colour'
+alias srs='spring rspec --colour'
 
 # Postgres
 alias pg_ctl='pg_ctl -D /usr/local/var/postgres'
@@ -29,15 +30,15 @@ alias logt='tail -f log/test.log'
 
 # Rails migration
 alias mig='bundle exec rake db:migrate'
-alias migt='RAILS_ENV=test bundle exec rake db:migrate'
+alias miga='bundle exec rake db:migrate ; RAILS_ENV=test bundle exec rake db:migrate'
 alias migr='bundle exec rake db:migrate:reset'
 alias rollb='bundle exec rake db:rollback'
-alias rollbt='RAILS_ENV=test bundle exec rake db:rollback'
+alias rollba='bundle exec rake db:rollback ; RAILS_ENV=test bundle exec rake db:rollback'
 alias seed='bundle exec rake db:seed'
 
 # Rails generators
 alias rgc='rails generate controller'
-alias rgm='rails generate migration'
+alias rgmig='rails generate migration'
 alias rgmod='rails generate model'
 alias rgs='rails generate scaffold'
 
@@ -87,11 +88,15 @@ alias sshdl='ssh deployer@192.168.0.201'
 alias https='python -m SimpleHTTPServer 8000'
 
 # Git
+alias gupd='gplm ; grbm ; gpf'
 alias gc='git commit -m'
-alias gca='git commit -am'
+alias gca='g add . ; git commit --amend --no-edit'
+alias gcap='g add . ; git commit --amend --no-edit ; gpf'
 alias gl='git log --oneline --graph --all --decorate'
 alias gr='git remote -v'
 alias gs='git status'
+alias gp='git push'
+alias gpf='git push -f'
 alias gpl='git pull'
 alias gplr='git pull --rebase'
 alias gplm='git fetch origin master:master'
@@ -104,7 +109,6 @@ alias s='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl .'
 alias o='open .'
 alias ng='~/ngrok http 5000'
 alias gitx='open -a SourceTree .'
-alias stree='open -a SourceTree .'
 alias mongos='mongod --config /usr/local/etc/mongod.conf'
 
 alias -s rb=atom
@@ -125,13 +129,14 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
-alias br="exec $SHELL -l"
 
-#remove folder
+# Remove folder
 alias rmf="rm -rf"
 alias rmd="rm -rf"
 
+# Edit config
 alias ec='atom ~/.bash_profile'
+
 # alias ec='atom ~/.oh-my-zsh/custom/aliases.zsh'
 
 # [[ -f ~/.aliases.local ]] && source ~/.aliases.local
