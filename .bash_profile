@@ -1,59 +1,45 @@
-# Redis client
-alias redisc='redis-commander'
-
 # Ruby
 alias be='bundle exec'
 
-alias rs='bundle exec rspec --colour'
+alias rs='rspec --colour'
 alias srs='spring rspec --colour'
 
-# Postgres
-alias pg_ctl='pg_ctl -D /usr/local/var/postgres'
-alias pgs='pg_ctl -D /usr/local/var/postgres stop'
-alias pgrs='pg_ctl -D /usr/local/var/postgres restart'
-
 # Rails
-alias r='rails'
 alias r4='rails _4.2.8_'
+alias r5='rails _5.0.2_'
+
+alias r='rails'
 alias rc='bundle exec rails console'
 alias routes='bundle exec rake routes'
 
-alias pumap='puma -p 5000'
-
-# Convert files erb files to haml
-# alias h2h='for file in app/views/devise/**/*.erb; do html2haml -e $file ${file%erb}haml && rm $file; done'
-# alias ddy='wget -O config/database.yml "https://gist.githubusercontent.com/tothpeter/4932ccacb22d974159a4/raw/8857a9da5f51ad27e1d32a23336cbd89a8d82ec5/gistfile1.txt"'
-# Rails logs
-alias logr='tail -f'
 alias logd='tail -f log/development.log'
 alias logt='tail -f log/test.log'
 
-# Rails migration
+# alias mig='rails db:migrate'
+# alias migt='RAILS_ENV=test rails db:migrate'
 alias mig='bundle exec rake db:migrate'
-alias miga='bundle exec rake db:migrate ; RAILS_ENV=test bundle exec rake db:migrate'
-alias migr='bundle exec rake db:migrate:reset'
+alias migt='RAILS_ENV=test bundle exec rake db:migrate'
+# alias reset='bundle exec rake db:migrate:reset'
 alias rollb='bundle exec rake db:rollback'
-alias rollba='bundle exec rake db:rollback ; RAILS_ENV=test bundle exec rake db:rollback'
-alias seed='bundle exec rake db:seed'
+alias rollbt='RAILS_ENV=test bundle exec rake db:rollback'
 
-# Rails generators
+alias rg='rails generate'
 alias rgc='rails generate controller'
-alias rgmig='rails generate migration'
+alias rgr='rails generate resource'
+alias rgm='rails generate migration'
 alias rgmod='rails generate model'
 alias rgs='rails generate scaffold'
 
-alias gd='bundle exec guard'
-
-# Deploy
-alias deploy='bundle exec cap production deploy'
-alias deploye='ember deploy --environment production'
+alias seed='bundle exec rake db:seed'
 
 # Ember
 alias e='ember'
 alias eg='ember g'
 alias egr='ember g route'
 alias egc='ember g controller'
+alias egco='ember g component'
 alias egm='ember g model'
+alias egs='ember g service'
 alias es='ember server'
 
 alias ed='ember deploy --environment production'
@@ -72,13 +58,17 @@ alias bi='bower i'
 alias ..='cd ..'
 alias ...='cd ...'
 
-alias -g gp='| grep -i'
-
 alias cdp='cd ~/projects'
-alias cdjs='cd ~/projects/js'
-alias cdr='cd ~/projects/ruby'
+alias cdpe='cd ~/projects/not-mine'
+alias cdb='cd ~/projects/blog'
+alias cd_blog='cd ~/projects/blog'
+alias cd_blog_template='cd ~/projects/blog/template'
+alias cd_blog_content='cd ~/projects/blog/content'
 
-alias filetree='ls -R | grep : | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/ /'\'' -e '\''s/-/|/'\'''
+alias cdtu='cd ~/tutorials'
+alias cdtj='cd ~/tutorials/js'
+alias cdtr='cd ~/tutorials/ruby'
+
 
 alias ssht='ssh -p ? tomaaa08@tomaaa08.ddns.net'
 alias sshtl='ssh tomaaa08@192.168.0.201'
@@ -90,12 +80,10 @@ alias https='python -m SimpleHTTPServer 8000'
 # Git
 alias gupd='gplm ; grbm ; gpf'
 alias gc='git commit -m'
-alias gca='g add . ; git commit --amend --no-edit'
-alias gcap='g add . ; git commit --amend --no-edit ; gpf'
+alias gca='git commit -am'
 alias gl='git log --oneline --graph --all --decorate'
 alias gr='git remote -v'
 alias gs='git status'
-alias gp='git push'
 alias gpf='git push -f'
 alias gpl='git pull'
 alias gplr='git pull --rebase'
@@ -108,10 +96,9 @@ alias a='atom .'
 alias s='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl .'
 alias o='open .'
 alias ng='~/ngrok http 5000'
+# alias mongos='mongod --config /usr/local/etc/mongod.conf'
 alias gitx='open -a SourceTree .'
-alias mongos='mongod --config /usr/local/etc/mongod.conf'
 
-alias -s rb=atom
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -129,14 +116,14 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+alias br="exec $SHELL -l"
+# alias br=". ~/.bash_profile"
 
 # Remove folder
 alias rmf="rm -rf"
 alias rmd="rm -rf"
 
 # Edit config
-alias ec='atom ~/.bash_profile'
+alias ec='atom ~/.bash_profile ~/.aliases'
 
-# alias ec='atom ~/.oh-my-zsh/custom/aliases.zsh'
-
-# [[ -f ~/.aliases.local ]] && source ~/.aliases.local
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
