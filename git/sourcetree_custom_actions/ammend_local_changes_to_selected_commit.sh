@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Install note: Add `$SHA` to parameters in SourceTree
+
 commit_id_to_edit=$1
 previous_commit_id=`git rev-parse $commit_id_to_edit^1`
 
