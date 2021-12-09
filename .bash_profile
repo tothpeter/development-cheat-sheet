@@ -4,6 +4,9 @@ alias be='bundle exec'
 alias rs='rspec --colour'
 alias srs='spring rspec --colour'
 
+# Docker
+alias con='docker exec -it `docker ps -aqf "name=web_app_1"` /bin/bash'
+
 # Rails
 alias r4='rails _4.2.8_'
 alias r5='rails _5.0.2_'
@@ -78,16 +81,22 @@ alias sshdl='ssh deployer@192.168.0.201'
 alias https='python -m SimpleHTTPServer 8000'
 
 # Git
-alias gupd='gplm ; grbm ; gpf'
+alias grbmf='EDITOR="atom --wait" grbi main'
+alias grbm='git stash ; git rebase $(git_main_branch) ; git stash pop'
+alias gupd='gplm ; grbm'
+alias gupdr='gplm ; grbm ; gpf'
+
 alias gc='git commit -m'
-alias gca='git commit -am'
+alias gca='git add . ; git commit --amend --no-edit'
+alias gcaa='git commit --amend'
+
 alias gl='git log --oneline --graph --all --decorate'
 alias gr='git remote -v'
 alias gs='git status'
 alias gpf='git push -f'
 alias gpl='git pull'
 alias gplr='git pull --rebase'
-alias gplm='git fetch origin master:master'
+alias gplm='git fetch origin $(git_main_branch):$(git_main_branch)'
 alias nah='git reset --hard && git clean -df'
 alias gu="git reset --soft 'HEAD^'"
 
