@@ -1,69 +1,64 @@
+# Current work - Bount
+alias con='docker exec -it `docker ps -aqf "name=web_app_1"` /bin/bash'
+
 # Ruby
 alias be='bundle exec'
 
 alias rs='rspec --colour'
-alias srs='spring rspec --colour'
-
-# Docker
-alias con='docker exec -it `docker ps -aqf "name=web_app_1"` /bin/bash'
+alias rs_spring='spring rspec --colour'
 
 # Rails
 alias r4='rails _4.2.8_'
 alias r5='rails _5.0.2_'
 
 alias r='rails'
-alias rc='bundle exec rails console'
-alias routes='bundle exec rake routes'
+alias rc='r console'
+alias routes='r routes'
 
 alias logd='tail -f log/development.log'
 alias logt='tail -f log/test.log'
 
-# alias mig='rails db:migrate'
-# alias migt='RAILS_ENV=test rails db:migrate'
 alias mig='bundle exec rake db:migrate'
 alias migt='RAILS_ENV=test bundle exec rake db:migrate'
-# alias reset='bundle exec rake db:migrate:reset'
-alias rollb='bundle exec rake db:rollback'
-alias rollbt='RAILS_ENV=test bundle exec rake db:rollback'
 
-alias rg='rails generate'
-alias rgc='rails generate controller'
-alias rgr='rails generate resource'
-alias rgm='rails generate migration'
-alias rgmod='rails generate model'
-alias rgs='rails generate scaffold'
+alias rollb='r db:rollback'
+alias rollbt='RAILS_ENV=test r db:rollback'
 
-alias seed='bundle exec rake db:seed'
+alias rg='r generate'
+alias rgc='r generate controller'
+alias rgmig='r generate migration'
+alias rgmod='r generate model'
+alias rgs='r generate scaffold'
+
+alias seed='r db:seed'
 
 # Ember
-alias e='ember'
-alias eg='ember g'
-alias egr='ember g route'
-alias egc='ember g controller'
-alias egco='ember g component'
-alias egm='ember g model'
-alias egs='ember g service'
-alias es='ember server'
-
-alias ed='ember deploy --environment production'
+# alias e='ember'
+# alias eg='ember g'
+# alias egr='ember g route'
+# alias egc='ember g controller'
+# alias egco='ember g component'
+# alias egm='ember g model'
+# alias egs='ember g service'
+# alias es='ember server'
+#
+# alias ed='ember deploy --environment production'
 
 emberDeployActivate() {
   ember deploy:activate --revision $1 --environment production
 }
 alias eda=emberDeployActivate
 
-alias el='ember deploy:list --environment production'
-
-# Bower
-alias bi='bower i'
+alias f='fuck'
 
 # UNIX
 alias ..='cd ..'
 alias ...='cd ...'
 
+alias cdw='cd ~/projects/bount/web'
 alias cdp='cd ~/projects'
-alias cdpe='cd ~/projects/not-mine'
-alias cdb='cd ~/projects/blog'
+alias cdp_not_mine='cd ~/projects/not-mine'
+
 alias cd_blog='cd ~/projects/blog'
 alias cd_blog_template='cd ~/projects/blog/template'
 alias cd_blog_content='cd ~/projects/blog/content'
@@ -72,11 +67,7 @@ alias cdtu='cd ~/tutorials'
 alias cdtj='cd ~/tutorials/js'
 alias cdtr='cd ~/tutorials/ruby'
 
-
-alias ssht='ssh -p ? tomaaa08@tomaaa08.ddns.net'
-alias sshtl='ssh tomaaa08@192.168.0.201'
-alias sshd='ssh -p ? deployer@tomaaa08.ddns.net'
-alias sshdl='ssh deployer@192.168.0.201'
+alias cdtmp='cd ~/tmp'
 
 alias https='python -m SimpleHTTPServer 8000'
 
@@ -121,7 +112,6 @@ alias a='atom .'
 alias s='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl .'
 alias o='open .'
 alias ng='~/ngrok http 5000'
-# alias mongos='mongod --config /usr/local/etc/mongod.conf'
 alias gitx='open -a SourceTree .'
 
 
@@ -141,14 +131,12 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
-alias br="exec $SHELL -l"
-# alias br=". ~/.bash_profile"
 
 # Remove folder
-alias rmf="rm -rf"
 alias rmd="rm -rf"
 
 # Edit config
-alias ec='atom ~/.bash_profile ~/.aliases'
+alias ec='atom ~/.bash_profile ~/.aliases.sh'
+alias eca='atom ~/.aliases.sh'
 
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
