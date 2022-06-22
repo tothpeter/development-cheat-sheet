@@ -18,8 +18,8 @@ alias routes='r routes'
 alias logd='tail -f log/development.log'
 alias logt='tail -f log/test.log'
 
-alias mig='bundle exec rake db:migrate'
-alias migt='RAILS_ENV=test bundle exec rake db:migrate'
+alias mig='r db:migrate'
+alias migt='RAILS_ENV=test r db:migrate'
 
 alias rollb='r db:rollback'
 alias rollbt='RAILS_ENV=test r db:rollback'
