@@ -81,14 +81,30 @@ alias sshdl='ssh deployer@192.168.0.201'
 alias https='python -m SimpleHTTPServer 8000'
 
 # Git
-alias grbmf='EDITOR="atom --wait" grbi main'
-alias grbm='git stash ; git rebase $(git_main_branch) ; git stash pop'
+alias grbi2='grbi HEAD~2'
+alias grbi3='grbi HEAD~3'
+alias grbi4='grbi HEAD~4'
+alias grbi5='grbi HEAD~5'
+alias grbi6='grbi HEAD~6'
+alias grbi7='grbi HEAD~7'
+alias grbi8='grbi HEAD~8'
+alias grbi9='grbi HEAD~9'
+
+# Git rebase master
+alias grbm='git stash && git rebase $(git_main_branch) && git stash pop'
+
+# Git rebase master iterative
+alias grbmi='EDITOR="atom --wait" grbi main'
+
+# Git update
 alias gupd='gplm ; grbm'
+# Git update iterative
+alias gupdi='gplm && grbmi'
+# Git update remote
 alias gupdr='gplm ; grbm ; gpf'
 
 alias gc='git commit -m'
-alias gca='git add . ; git commit --amend --no-edit'
-alias gcaa='git commit --amend'
+alias gam='git add . ; git commit --amend --no-edit'
 
 alias gl='git log --oneline --graph --all --decorate'
 alias gr='git remote -v'
